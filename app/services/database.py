@@ -2,12 +2,12 @@ import sqlite3
 from sqlite3 import IntegrityError
 
 from app.core.logger import logger
-from app.db.schema import DATABASE
+from app.core.paths import database_file
 
 
 class DatabaseOperator:
     def __init__(self):
-        self._db = DATABASE
+        self._db = database_file
 
     def get_status(self, thread_id: str) -> str | None:
         with sqlite3.connect(self._db) as conn:

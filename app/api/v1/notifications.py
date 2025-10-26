@@ -1,8 +1,10 @@
 from fastapi import APIRouter, Body
 from pydantic import BaseModel
-from app.commands.chat import NotificationValidator
+from app.services.notifications import NotificationValidator
 
 router = APIRouter()
+
+
 class Notification(BaseModel):
     notification: dict  
 

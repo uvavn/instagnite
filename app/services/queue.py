@@ -6,7 +6,7 @@ from app.core.logger import logger
 from app.services.instagram import Message
 
 
-class QueueManager:
+class Queue:
     _instance = None
     _lock = Lock()
 
@@ -14,7 +14,7 @@ class QueueManager:
         if cls._instance is None:
             with cls._lock:
                 if cls._instance is None:
-                    cls._instance = super(QueueManager, cls).__new__(cls)
+                    cls._instance = super(Queue, cls).__new__(cls)
                     cls._instance._initialized = False
         return cls._instance
 
